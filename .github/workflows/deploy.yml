@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # trigger on push to main branch
+      - backend-cicd-ec2
 
 jobs:
   build-and-deploy:
