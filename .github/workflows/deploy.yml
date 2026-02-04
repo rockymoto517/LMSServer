@@ -35,14 +35,16 @@ jobs:
         username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          # Pull latest Docker image
+          # pull latest docker image
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/lms-backend-demo:demo
           
-          # Stop old container if running
-          if [ $(sudo docker ps -q -f name=lms-backend) ]; then
-            sudo docker stop lms-backend
-            sudo docker rm lms-backend
-          fi
+          # stop old container if running
+          sudo docker stop lms-backend || true
+          sudo docker rm lms-backend || true
           
-          # Run new container
-          sudo docker run -d --name lms-backend -p 80:3000 ${{ secrets.DOCKER_USERNAME }}/lms-backend-demo:demo
+          # run new container
+          sudo docker run -d \
+              --name lms-backend \
+              --restart unless-stopped \
+              -p 80:3000 \
+              ${{ secrets.DOCKER_USERNAME }}/lms-backend-demo:demo
