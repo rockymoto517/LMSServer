@@ -1,12 +1,36 @@
 {
   "dependencies": {
+    "@prisma/adapter-pg": "^7.4.0",
+    "@prisma/client": "^7.4.0",
+    "dotenv": "^17.3.0",
     "express": "^5.2.1"
   },
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "lint": "npx eslint ."
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
-  }
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0",
+    "nodemon": "^3.1.11",
+    "prisma": "^7.4.0"
+  },
+  "name": "lmsserver",
+  "version": "1.0.0",
+  "description": "A minimal Express.js demo application for quick setup and development.",
+  "main": "prisma.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntraProj/LMSServer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/AntraProj/LMSServer/issues"
+  },
+  "homepage": "https://github.com/AntraProj/LMSServer#readme"
 }
